@@ -96,6 +96,26 @@ def add_game_to_player(session, player_id, game_id):
         print(f"Game '{game.title}' added to player '{player.username}'!")
     else:
         print("Player or Game not found!")
+def view_players_by_game(session, game_id):
+    # Fetch the game by its ID
+    game = session.query(Game).filter_by(id=game_id).first()
+    
+    if not game:
+        print("Game not found.")
+        return []
+    
+    # Fetch all PlayerGame entries for the given game ID
+    player_games = session.query(PlayerGame).filter_by(game_id=game_id).all()
+    if not player_games:
+        print(f"No players found for the game '{game.title}'.")
+        return []
+    
+    # Extract and return players associated with the game
+    players = [pg.player for pg in player_games]
+    print(f"Players who play '{game.title}':")
+    return players
+
+
 
 def main_menu():
    
@@ -112,6 +132,7 @@ def main_menu():
         print("9. View Games by Player")
         print("10. List Game Ratings")
         print("11. Add Game to Player")
+        print("12. View Players for a Game")
         print("0. Exit")
 
         choice = input("Choose an option: ")
@@ -193,13 +214,20 @@ def main_menu():
             player_id = int(input("Player ID: "))
             game_id = int(input("Game ID: "))
             add_game_to_player(session, player_id, game_id)
-
+        
+        
+        
+        elif choice == "12":
+            game_id = int(input("Game ID: "))
+            players = view_players_by_game(session, game_id)
+            for player in players:
+                print(player)
         elif choice == "0":
-            print("Exiting the Game Library. Goodbye!")
+            print("You selected Exit.")  # Debug message
+            print("Breaking the loop...")  # Debug message
             break
-
         else:
-            print("Invalid choice. Please choose a valid option.")
+            print("Invalid choice.")
 if __name__ == "__main__":
     init_db()  # Call the function to initialize the database
     main_menu()     # Call the main function for the menu
