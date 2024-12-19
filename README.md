@@ -9,3 +9,41 @@
 - **Search and Filter**: Easily search games by title or genre to find exactly what you're looking for.
 - **Game-Player Association**: Link players to games they own or play and view all games linked to a specific player or all players linked to a specific game.
 - **Ratings Overview**: Display games with their user ratings to see how they stack up.
+
+## Why Choose Game Library CLI?
+
+- **Streamlined Interaction**: Intuitive commands make managing your game library a breeze.
+- **Data Integrity**: Leveraging SQLite ensures your data is organized, secure, and fast.
+- **Customizable Workflows**: Flexible enough to suit individual or team use cases.
+- **Scalability**: Perfect for small collections or expansive libraries.
+
+## Technologies Used
+
+- **Python**: The backbone of the application, ensuring functionality and flexibility.
+- **SQLite**: A lightweight yet robust relational database for secure and efficient data storage.
+
+
+## Usage Examples
+
+### Adding a Game
+
+- Select **Add Game** from the menu.
+- Follow prompts to input details like title, genre, release year, etc.
+
+### Associating a Player with a Game
+
+- Navigate to **Add Game to Player**.
+- Link an existing player to a specific game.
+
+### Viewing All Games by a Player
+
+- Select the **View Games by Player0** option.
+- Choose a player to view their associated games.
+
+## Future Enhancements
+
+- **Advanced Search**: Add multi-criteria search capabilities.
+- **Cloud Integration**: Enable cloud backups for data.
+- **Leaderboard**: Display top-rated games based on user ratings.
+- **Analytics Dashboard**: Include insights like most-played games and player trends.
+
